@@ -34,9 +34,67 @@ html {
     box-sizing: inherit;   /* установливает для всех элементов и псевдоэлементов наследование от родителя*/
 }
 
-.item {
-    width: 200px;
-    height: 100px;
-    background: green;
-    padding: 20px;
-  }
+body {
+  font-family: 'Lato';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: normal;
+  color: #102746;
+}
+
+.wrapper {              /*ограничивает контент*/
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+/*header styles start*/
+
+.header {
+  position: fixed;  /*фиксируем шапку, чтобы при скролинге она оставалась в верхней части экрана*/
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header__wrapper{       /*создается для того, чтобы задать расположение nav  и logo*/
+  display: flex;
+  flex-wrap: wrap;      /*отвечает за перенос контента на другую строку*/
+  align-items: flex-end; /*вертикальное выравнивание*/
+  justify-content: space-between; /*выравниваем по краям*/
+  padding-top: 56px;
+}
+
+.header__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__item {
+  margin-right: 82px;
+}
+
+.header__item:last-child {     /*применяем стили к последнему элементу*/
+  margin-right: 0;
+}
+
+.header__link {
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
+  text-decoration: none;
+}
+
+.header__link:hover, .header__link:focus, .header__link:active {
+  opacity: .75;
+}
+
+/*header styles end*/
+
+/*intro styles start*/
+.intro {
+  height: 100vh;
+  background: url(../img/Hero.jpg) no-repeat center;
+  background-size: cover;         /*картинка полностью покрывает блок при любых его размерах*/
+}
+/*intro styles start*/
