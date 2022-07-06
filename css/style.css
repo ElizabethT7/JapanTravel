@@ -43,9 +43,39 @@ body {
   color: #102746;
 }
 
+img {
+  max-width: 100%;   /*чтобы изображение никогда не превышало размер контейнера*/
+  height: auto;     /*сжимается пропорционально по высоте*/
+}
+
 .wrapper {              /*ограничивает контент*/
   max-width: 1060px;
   margin: 0 auto;
+}
+
+.wrapper-full {    /*еще одна обертка, чтобы ограничить секции*/
+  max-width: 1262px;
+  margin: 0 auto;
+}
+
+.section-title {   /*применим стили для всех подзаголовков*/
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  color: #102746;
+  position: relative;  /*родитель псевдоэлемента*/
+  padding-bottom: 10px;  /*7px расстояние + полоска 3px*/
+}
+
+.section-title::after {
+  display: block;
+  content: '';  /*пустой контент для того, чтобы псевдоэлемент появился на странице*/
+  width: 253px;
+  height: 3px;
+  background-color: #006DFE;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /*header styles start*/
@@ -96,7 +126,8 @@ body {
   height: 100vh;
   background: url(../img/Hero.jpg) no-repeat center;
   background-size: cover;         /*картинка полностью покрывает блок при любых его размерах*/
-  padding-top: 263px;           /*заголовок прибит к верху, так как header не участвует в общем потоке (из-зи position: fixed;)*/
+  padding-top: 89px;
+  padding-bottom: 223px;           /*заголовок прибит к верху, так как header не участвует в общем потоке (из-зи position: fixed;)*/
 }
 
 .intro__title {
@@ -160,4 +191,188 @@ body {
   background: #1a67ce;
 }
 
-/*intro styles start*/
+/*intro styles end*/
+
+/*Benefits styles start*/
+.benefits {
+  margin-bottom: 131px;
+}
+
+.benefits__wrap {
+  max-width: 1262px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+  position: relative; /*для того, чтобы спозиционировать title*/
+}
+
+.benefits__title {
+  width: 100%;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  padding: 93px 100px 88px 100px;
+  position: absolute;  /*выпадает из общего потока документа(его размеры не учитываются)*/
+  top: 0;
+  left: 0;
+  transform: translateY(-100%); /*сдвигаем на 100% высоты элемента*/
+  background-color: #FFFFFF;
+}
+
+.benefits__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 55px;
+  padding: 0 100px;
+}
+
+.benefits__card {
+  grid-column: span 1;  /*карточки занимают по одной колонке*/
+  margin-bottom: 112px;
+}
+
+.benefits__card-pic {
+  max-width: 66px;  /*органичиваем по ширине*/
+  margin-bottom: 37px;
+}
+
+.benefits__card-thumb {
+  display: block;   /*убираем все отступы у картинок или svg*/
+}
+
+.benefits__card-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 26px;
+}
+
+.benefits__card-desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 39px;
+}
+
+.benefits__card-more {
+  display: inline-block;
+  padding-right: 59px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url(../img/svg/arrowRight.svg) no-repeat 95% center;
+  transition: .2s all;
+}
+
+.benefits__card-more:hover, .benefits__card-more:focus {
+  background: url(../img/svg/arrowRight.svg) no-repeat right center;
+}
+/*Benefits styles end*/
+
+/*Places styles start*/
+.places {
+  margin-bottom: 131px;
+}
+
+.places-title {
+  /*margin-bottom: 36px;  /*измеряем от планочки*/
+  margin-right: 15px; /*при уменьшении экрана элементы сблизятся, нужно, чтобы между ними остался отступ (отступ безопасности)*/
+} 
+
+.places__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;  /*задаем не для заголовка, чтобы элементы выровнялись по центру*/
+}
+
+.places__view-all {
+  padding-right: 59px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url(../img/svg/arrowRight.svg) no-repeat right center;
+  transition: .2s all;
+}
+
+.places__view-all:hover, .places__view-all:focus {
+  opacity: .7;
+}
+
+.places__cards { /*создаем грид контейнер, количество колонок должно делится и на 2 и на 3*/
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+
+}
+
+.places__card_size_lg {
+  grid-column: span 3;
+}
+
+.places__card_size_sm {
+  grid-column: span 2;
+}
+
+.places__card {
+  position: relative;
+  overflow: hidden;
+}
+
+.places__card::after {  /*изображение теперь растягивается не на всю ширину контейнера, можно прописать width 100%  или использовать свойство transform gridscale  и прописать overfloy: hidden*/
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(21, 24, 36, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+ 
+.places__card:hover, .places__card-pic {    /*будем менять размеры изибражений*/
+transform: scale(1.05);   /*чтобы не вылазили за пределы контейнера для places__card указывае overfloy*/
+}
+
+.places__card-title {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 27px;
+  left: 29px;
+  z-index: 3;
+}
+
+.places__card-pic {
+  width: 100%;
+  transition: .15s all;
+}
+
+.places__card-pic_size_lg {
+  height: 354px;  /*задаем жестко, чтобы получить картинки одинаковой высоты*/
+  object-fit: cover;  /*указывает как изображение будет маштабироваться внутри контейнера*/
+}
+
+.places__card-pic_size_sm {
+  height: 283px;  /*задаем жестко, чтобы получить картинки одинаковой высоты*/
+  object-fit: cover;  /*указывает как изображение будет маштабироваться внутри контейнера*/
+}
+
+.places__card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+/*Places styles end*/
