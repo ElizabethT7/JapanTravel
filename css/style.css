@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* lato-regular - latin */
 @font-face {
     font-family: 'Lato';
@@ -27,11 +34,13 @@
   }
 
 html {
-    box-sizing: border-box;  /*padding не влияет на размер блока*/
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;  /*padding не влияет на размер блока*/
 }
 
 *, *::before, *::after {
-    box-sizing: inherit;   /* установливает для всех элементов и псевдоэлементов наследование от родителя*/
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;   /* установливает для всех элементов и псевдоэлементов наследование от родителя*/
 }
 
 body {
@@ -88,6 +97,8 @@ img {
   top: 0;
   left: 0;
   width: 100%;
+  -webkit-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
   transition: 0.2s linear;
   padding-bottom: 20px;
   z-index: 999;
@@ -98,16 +109,26 @@ img {
 }
 
 .header__wrapper{       /*создается для того, чтобы задать расположение nav  и logo*/
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;      /*отвечает за перенос контента на другую строку*/
-  align-items: flex-end; /*вертикальное выравнивание*/
-  justify-content: space-between; /*выравниваем по краям*/
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;      /*отвечает за перенос контента на другую строку*/
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end; /*вертикальное выравнивание*/
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; /*выравниваем по краям*/
   padding-top: 36px;
 }
 
 .header__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .header__item {
@@ -151,7 +172,9 @@ img {
 
 .burger__line_second {
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .burger__line_third {
@@ -164,7 +187,7 @@ img {
 /*intro styles start*/
 .intro {
   min-height: 100vh;
-  background: url(../img/Hero.jpg) no-repeat center;
+  background: url(../img/Hero-min.jpg) no-repeat center;
   background-size: cover;         /*картинка полностью покрывает блок при любых его размерах*/
   padding-top: 263px;
   padding-bottom: 376px;           /*заголовок прибит к верху, так как header не участвует в общем потоке (из-зи position: fixed;)*/
@@ -190,8 +213,11 @@ img {
 }
 
 .search-form__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .search-form__field {
@@ -204,6 +230,34 @@ img {
   margin-right: 60px;
   padding-left: 43px;
   padding-bottom: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.search-form__field::-webkit-input-placeholder {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.search-form__field::-moz-placeholder {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.search-form__field:-ms-input-placeholder {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.search-form__field::-ms-input-placeholder {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -242,7 +296,8 @@ img {
   max-width: 1262px;
   background-color: #FFFFFF;
   margin: 0 auto;
-  box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+  -webkit-box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+          box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
   position: relative; /*для того, чтобы спозиционировать title*/
 }
 
@@ -255,18 +310,25 @@ img {
   position: absolute;  /*выпадает из общего потока документа(его размеры не учитываются)*/
   top: 0;
   left: 0;
-  transform: translateY(-100%); /*сдвигаем на 100% высоты элемента*/
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%); /*сдвигаем на 100% высоты элемента*/
   background-color: #FFFFFF;
 }
 
 .benefits__cards {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 55px 1fr 55px 1fr;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 55px;
+  -webkit-column-gap: 55px;
+     -moz-column-gap: 55px;
+          column-gap: 55px;
   padding: 0 100px;
 }
 
 .benefits__card {
+  -ms-grid-column-span: 1;
   grid-column: span 1;  /*карточки занимают по одной колонке*/
   margin-bottom: 112px;
 }
@@ -303,6 +365,8 @@ img {
   color: #006DFE;
   text-decoration: none;
   background: url(../img/svg/arrowRight.svg) no-repeat 95% center;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
   transition: .2s all;
 }
 
@@ -322,10 +386,17 @@ img {
 } 
 
 .places__caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-bottom: 36px;  /*задаем не для заголовка, чтобы элементы выровнялись по центру*/
 }
 
@@ -337,6 +408,8 @@ img {
   color: #006DFE;
   text-decoration: none;
   background: url(../img/svg/arrowRight.svg) no-repeat right center;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
   transition: .2s all;
 }
 
@@ -345,16 +418,20 @@ img {
 }
 
 .places__cards { /*создаем грид контейнер, количество колонок должно делится и на 2 и на 3*/
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
 }
 
 .places__card_size_lg {
+  -ms-grid-column-span: 3;
   grid-column: span 3;
 }
 
 .places__card_size_sm {
+  -ms-grid-column-span: 2;
   grid-column: span 2;
 }
 
@@ -376,7 +453,9 @@ img {
 }
  
 .places__card:hover .places__card-pic {    /*будем менять размеры изибражений*/
-transform: scale(1.05);   /*чтобы не вылазили за пределы контейнера для places__card указывае overfloy*/
+-webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+        transform: scale(1.05);   /*чтобы не вылазили за пределы контейнера для places__card указывае overfloy*/
 }
 
 .places__card-title {
@@ -392,17 +471,21 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
 
 .places__card-pic {
   width: 100%;
+  -webkit-transition: .15s all;
+  -o-transition: .15s all;
   transition: .15s all;
 }
 
 .places__card-pic_size_lg {
   height: 354px;  /*задаем жестко, чтобы получить картинки одинаковой высоты*/
-  object-fit: cover;  /*указывает как изображение будет маштабироваться внутри контейнера*/
+  -o-object-fit: cover;
+     object-fit: cover;  /*указывает как изображение будет маштабироваться внутри контейнера*/
 }
 
 .places__card-pic_size_sm {
   height: 283px;  /*задаем жестко, чтобы получить картинки одинаковой высоты*/
-  object-fit: cover;  /*указывает как изображение будет маштабироваться внутри контейнера*/
+  -o-object-fit: cover;
+     object-fit: cover;  /*указывает как изображение будет маштабироваться внутри контейнера*/
 }
 
 .places__card-link {
@@ -421,10 +504,14 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
 }
 
 .tours__tour {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 108px 1fr;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 108px; 
-  align-items: center;
+  -webkit-box-align: center; 
+      -ms-flex-align: center; 
+          align-items: center;
   margin-bottom: 77px;
 }
 
@@ -458,6 +545,8 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   color: #006DFE;
   text-decoration: none;
   background: url(../img/svg/arrowRight.svg) no-repeat right center;
+  -webkit-transition: .2s all;
+  -o-transition: .2s all;
   transition: .2s all;
 }
 
@@ -476,7 +565,9 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
 }
 
 .top__cards {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr 57px 1fr;
   grid-template-columns: repeat(6, 1fr);
   grid-column-gap: 57px;
   grid-row-gap: 57px;
@@ -484,8 +575,14 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
 }
 
 .top__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;  /*выравниваем, если высота контента будет разная*/
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;  /*выравниваем, если высота контента будет разная*/
+  -ms-grid-column-span: 2;
   grid-column: span 2;
 }
 
@@ -526,10 +623,17 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
 }
 
 .top__card-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -590,8 +694,11 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
 }
 
 .footer__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .footer__logo {
@@ -599,9 +706,14 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
 }
 
 .footer__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 50%;
 }
 
@@ -650,14 +762,17 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   }
 
   .benefits__wrap {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 
   .places__card_size_lg {
+    -ms-grid-column-span: 6;
     grid-column: span 6;
   }
 
   .places__card_size_sm {
+    -ms-grid-column-span: 6;
     grid-column: span 6;
   }
 
@@ -683,6 +798,7 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   }
 
   .top__card {
+    -ms-grid-column-span: 3;
     grid-column: span 3;
   }
 
@@ -722,12 +838,18 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
     background-color: #0E1D28;
     z-index: 10;
     padding: 75px;
-    transform: translateX(100%); /*сдвинем на ширину вправо*/
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%); /*сдвинем на ширину вправо*/
+    -webkit-transition: .2s all linear;
+    -o-transition: .2s all linear;
     transition: .2s all linear;
   }
 
   .header__nav-active {
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
   }
 
   .header__item {
@@ -765,11 +887,15 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   }
 
   .header__nav-close-line:first-child {
-    transform: translateY(-50%) rotate(45deg);
+    -webkit-transform: translateY(-50%) rotate(45deg);
+        -ms-transform: translateY(-50%) rotate(45deg);
+            transform: translateY(-50%) rotate(45deg);
   }
 
   .header__nav-close-line:last-child {
-    transform: translateY(-50%) rotate(-45deg);
+    -webkit-transform: translateY(-50%) rotate(-45deg);
+        -ms-transform: translateY(-50%) rotate(-45deg);
+            transform: translateY(-50%) rotate(-45deg);
   }
 
   .intro {
@@ -792,6 +918,22 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
     background: url(../img/svg/Oval.svg) no-repeat left 2px;
   }
 
+  .search-form__field::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+
+  .search-form__field::-moz-placeholder {
+    font-size: 16px;
+  }
+
+  .search-form__field:-ms-input-placeholder {
+    font-size: 16px;
+  }
+
+  .search-form__field::-ms-input-placeholder {
+    font-size: 16px;
+  }
+
   .search-form__field::placeholder {
     font-size: 16px;
   }
@@ -801,6 +943,7 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   }
   
   .benefits__card {
+    -ms-grid-column-span: 3;
     grid-column: span 3;
     margin-bottom: 40px;
   }
@@ -837,6 +980,7 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   }
 
   .tour-pic, .tour__info {
+    -ms-grid-column-span: 2;
     grid-column: span 2;
   }
 
@@ -845,7 +989,8 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   }
 
   .tour-pic_mob-first {
-    grid-row-start: -1;
+    -ms-grid-row-start: -1;
+        grid-row-start: -1;
   }
 
   .tours__tour {
@@ -857,6 +1002,7 @@ transform: scale(1.05);   /*чтобы не вылазили за пределы
   }
 
   .top__card {
+    -ms-grid-column-span: 6;
     grid-column: span 6;
   }
 
