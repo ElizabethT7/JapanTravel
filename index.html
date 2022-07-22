@@ -21,16 +21,16 @@
             <nav class="header__nav">
                 <ul class="header__list">
                     <li class="header__item">
-                       <a href="#!" class="header__link">Articles</a> 
+                       <a href="#articles" class="header__link js-scroll">Articles</a> 
                     </li>
                     <li class="header__item">
-                        <a href="#!" class="header__link">Locations</a> 
+                        <a href="#locations" class="header__link js-scroll">Locations</a> 
                     </li>
                     <li class="header__item">
-                        <a href="#!" class="header__link">Videos</a> 
+                        <a href="#videos" class="header__link js-scroll">Videos</a> 
                     </li>
                     <li class="header__item">
-                        <a href="#!" class="header__link">Sign in</a> 
+                        <a href="#sign-in" class="header__link js-scroll">Sign in</a> 
                     </li>
                 </ul>
                 <div class="header__nav-close">
@@ -48,7 +48,7 @@
    </header>
    <main class="main">
         <!--Intro-->
-        <section class="intro">
+        <section class="intro" id="sign-in">
             <div class="wrapper">
                 <h1 class="intro__title">Discover Amazing places in Japan</h1>
                 <p class="intro__subtitle">
@@ -135,7 +135,7 @@
             </div>
         </section>
         <!--Tours-->
-        <div>  <!--Не используем section, так как нет заголовка-->
+        <div class="tours" id="articles">  <!--Не используем section, так как нет заголовка-->
             <div class="wrapper-full">
                 <div class="tours__tour tour">  <!--Grid контейнер-->
                     <div class="tour-pic">
@@ -167,7 +167,7 @@
             </div>
         </div>
         <!--Top-->
-        <section class="top">
+        <section class="top" id="locations">
             <div class="wrapper-full">
                 <h2 class="top__title section-title">Today top places to visit</h2>
                 <div class="top__cards"> <!--grid container-->
@@ -283,7 +283,7 @@
             </div>
         </section>
         <!--Videos-->
-        <div class="videos">
+        <div class="videos" id="videos">
             <div class="videos__wrapper">
                 <div class="video__item"></div> <!--создаем для того, чтобы сделать видео адаптивным-->
                 <!--встраиваем видео из youtube-->
